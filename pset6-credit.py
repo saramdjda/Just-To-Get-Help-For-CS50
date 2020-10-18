@@ -25,17 +25,18 @@ def get_card_number():
 
 
 # Validation
-def validation(ccn):
-    length = len(str(ccn))
-    if (length == 13 or length == 15 or length == 16) and check(ccn):
+def validation(card_number):
+    length = len(str(card_number))
+    if (length == 13 or length == 15 or length == 16) and check(card_number):
         return True
     else:
         return False
 
 
 # Luhn's algorithm
-def check(ccn):
+def check(card_number):
     luhn = 0
+    ccn = card_number
     for i in range(len(str(ccn))) and ccn != 0:
         if i % 2 == 0:
             luhn += ccn % 10
